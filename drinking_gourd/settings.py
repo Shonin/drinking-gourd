@@ -30,6 +30,9 @@ class Config(object):
     # mail accounts
     MAIL_DEFAULT_SENDER = '#@#.com'
 
+    # Recaptcha keys
+    RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC')
+    RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE')
 
 class ProdConfig(Config):
     """Production configuration."""
