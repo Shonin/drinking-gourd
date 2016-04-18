@@ -25,12 +25,11 @@
             
             <div class="col-md-offset-2 col-md-8">
                <h1>Contact Us</h1>
-               <p></p>
+               <p>We love hearing from our listeners! Questions, comments, concerns and reccomendations are all welcome</p>
                <p></p>
             </div>
 
-            <div class="col-sm-4 col-sm-offset-2">
-                    <h3>Contact Us Form:</h3>
+            <div class="col-md-offset-2 col-sm-4 col-xs-8">
                     {% for message in form.name.errors %}
                       <div class="alert alert-danger">{{ message }}</div>
                     {% endfor %}
@@ -65,15 +64,6 @@
 
                     </form>
                   </div>
-
-                    <div class="col-sm-4 contactinfo">
-                       <h3>Say Something</h3>
-                        <h3>Call Us:</h3>
-                        <h4>419-999-0984</h4>
-                        <h3>Email Us</h3>
-                        <h4><a href="mailto:#@#.com">#@#.com</a></h4>
-                    </div>
-        
             </div>
             <!-- /.row -->
     </div>

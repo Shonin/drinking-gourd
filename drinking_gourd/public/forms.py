@@ -24,7 +24,7 @@ class ResetPassword(Form):
 class ContactForm(Form):
     """Contact Form"""
 
-    name = StringField('Full Name', validators=[DataRequired("Please enter your name")])
+    name = StringField('Name', validators=[DataRequired("Please enter your name")])
     email = StringField('Email Address', validators=[DataRequired("Pleaes enter your email"), Email("Enter a valid email")])
     message = TextAreaField('Message', validators=[DataRequired("Please enter a message")])
     recaptcha = RecaptchaField()
