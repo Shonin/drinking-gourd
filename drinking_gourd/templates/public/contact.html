@@ -1,0 +1,82 @@
+
+<!-- INSERT PAGE HERE eg "Contact Us" -->
+{% extends "userlayout.html" %}
+
+
+<!-- metaDescription -->
+{% block metaDescription %}{% endblock %}
+
+
+<!-- metaKeywords -->
+{% block metaKeywords %}{% endblock %}
+
+
+
+<!-- metaTitle -->
+{% block metaTitle %}{% endblock %}
+
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Row -->
+        <div class="row">
+            
+            <div class="col-md-offset-2 col-md-8">
+               <h1>Contact Us</h1>
+               <p></p>
+               <p></p>
+            </div>
+
+            <div class="col-sm-4 col-sm-offset-2">
+                    <h3>Contact Us Form:</h3>
+                    {% for message in form.name.errors %}
+                      <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                     
+                    {% for message in form.email.errors %}
+                      <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                     
+                    {% for message in form.message.errors %}
+                      <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+
+                    {% for message in form.recaptcha.errors %}
+                      <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+
+                    <form action="{{ url_for('public.contact') }}" method=post>
+                        {{ form.hidden_tag() }}
+     
+                        {{ form.name.label }}
+                        {{ form.name(class_="form-control") }}
+                        <br>
+                        {{ form.email.label }}
+                        {{ form.email(class_="form-control")  }}
+                        <br>
+                        {{ form.message.label }}
+                        {{ form.message(class_="form-control")  }}
+                        <br>
+                        {{ form.recaptcha }}
+                        <br>
+                        {{ form.submit(class_="btn btn-primary") }}
+
+                    </form>
+                  </div>
+
+                    <div class="col-sm-4 contactinfo">
+                       <h3>Say Something</h3>
+                        <h3>Call Us:</h3>
+                        <h4>419-999-0984</h4>
+                        <h3>Email Us</h3>
+                        <h4><a href="mailto:#@#.com">#@#.com</a></h4>
+                    </div>
+        
+            </div>
+            <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

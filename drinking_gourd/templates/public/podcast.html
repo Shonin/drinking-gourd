@@ -1,0 +1,53 @@
+
+<!-- INSERT PAGE HERE eg "About Us" -->
+{% extends "userlayout.html" %}
+
+
+<!-- metaDescription -->
+{% block metaDescription %}{% endblock %}
+
+
+<!-- metaKeywords -->
+{% block metaKeywords %}{% endblock %}
+
+<!-- metaTitle -->
+{% block metaTitle %}{% endblock %}
+
+
+
+{% block body %}
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+
+            {{ pagination.info | safe }}
+            {{ pagination.links | safe }}
+
+            <h2>The Podcasts</h2>
+
+            {% set skip = page * 10 %}
+            {% for x in range(skip - 10, skip) %}
+            {% set i = feed.entries[x] %}
+            <div class="podcast">
+                <h4>{{ i.title }}</h4>
+                <p>{{ i.published }}</p>
+                <p>{{ i.summary | safe }}</p>
+                    <p><a href="{{ i.enclosures[0]['href'] }}"><button class="btn btn-primary">listen now</button></a></p>
+            </div>
+            <br>
+            {% endfor %}
+
+            {{ pagination.links }}
+        
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

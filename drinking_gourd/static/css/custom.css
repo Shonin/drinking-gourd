@@ -1,0 +1,214 @@
+
+/*======================
+    PODCAST SECTION
+=======================*/
+
+.podcast {
+  padding: 15px;
+  border: black solid 1px;
+}
+
+.pagination-page-info {
+    margin-top: 20px;
+
+}
+
+
+.pagination ul {
+  list-style: none;
+  display: inline;
+}
+
+.pagination ul li {
+  display: inline;
+/*  border: #666 solid 1px;
+  padding: 7px 5px;
+  margin: 0px 2px;*/
+}
+
+.pagination ul li a {
+    position: relative;
+    float: left;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.5;
+    color: #0275d8;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+
+/*======================
+    CUSTOM NAV SECTION
+=======================*/
+
+.navbar-inverse .navbar-brand {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #333;
+  padding-top: 25px;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #555;
+}
+
+/*======================
+    HOME SECTION
+=======================*/
+
+
+
+.homehead {
+  background: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: 0% 20%;
+  position: absolute;
+  padding: 0px 0px 0px 0px;
+  color: white;
+  height: 400px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.homecolorlayer {
+  position: absolute;
+  /*background-color: rgba(200, 203, 203, 0.72);*/
+  padding-top: 250px;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #eee;
+}
+
+
+.well {
+    color: #000;
+    border: 3px solid #ddd;
+    background-color: #ddd;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+
+/*======================
+    CONTACT SECTION
+=======================*/
+
+.contactinfo {
+  text-align: right;
+}
+
+
+/*======================
+    ABOUT SECTION
+=======================*/
+
+.abouthead {
+  background: url("http://placehold.it/2000x300");
+  background-repeat: no-repeat;
+  background-size: 2000px 220px;
+  padding: 10px 0px 10px 0px;
+  color: white;
+  height: 220px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.aboutcolorlayer {
+  position: absolute;
+  background-color: rgba(200, 200, 200, 0.72);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/*======================
+    LAYOUT STUFF
+=======================*/
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-inverse {
+    background-color: white;
+    border-bottom: 2px #ddd solid;
+}
+
+
+@media (max-width: 991px) {
+  .navbar-fixed-top .navbar-brand {
+      padding: 0px 0px 0px 20px !important;
+  }
+}
+
+.navbar-toggle {
+  background-color: #ddd;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: #666;
+    font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #555;
+}
+
+.navbar-inverse .navbar-nav li a:active {
+    color: #666;
+}
+
+
+footer {
+    padding: 30px 0;
+    margin-top: 100px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 50px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
+}
+
+footer {
+    background-color: #F8F8F8;
+    border-top: 1px solid #E7E7E7;
+    text-align:center;
+    padding:20px;
+  
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}

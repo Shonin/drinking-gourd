@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+    <meta name="keywords" content="{% block metaKeywords %}{% endblock %}">
+
+    <title>{% block metaTitle %}{% endblock %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('public.home') }}">
+                    The Drinking Gourd
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="{{ url_for('public.podcast') }}">Podcasts</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('public.about') }}">About</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('public.contact') }}">Contact</a>
+                    </li>
+                    {% if current_user and current_user.is_authenticated %}
+                    
+                    
+                    <li>
+                        <a href="{{ url_for('user.account') }}">My Account</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('user.logout') }}">Logout</a>
+                    </li>
+
+                    {% else %}
+                    
+                    <li>
+                        <a href="{{ url_for('public.login_page') }}">Login</a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="row">
+      <div class="col-md-12">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
+         {{message}}
+        </div><!-- end .alert -->
+        {% endfor %}
+      </div><!-- end col-md -->
+    </div><!-- end row -->
+        {% endif %}
+    {% endwith %}
+
+    <!-- Page Content -->
+   {% block body %}
+   {% endblock %}
+
+    <footer>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="{{ url_for('public.about') }}">About</a>
+            </li>
+            <li>
+                <a href="{{ url_for('public.contact') }}">Contact</a>
+            </li>
+            <li>
+            
+                <a>Copyright &copy; The Drinking Gourd, 2016</a>
+            </li>
+        </ul>
+    </footer>
+
+    
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>
+

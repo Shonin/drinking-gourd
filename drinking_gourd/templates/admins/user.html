@@ -1,0 +1,67 @@
+
+{% extends "adminlayout.html" %}
+{% block body %}
+    
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8">
+
+		    <h1>This is {{ user.full_name }}'s Account Page</h1>
+
+		    <p>{{ user.full_name }}<br>
+		    {{ user.addressLineOne }} <br>
+		    {% if user.addressLineTwo %}{{ user.addressLineTwo}}<br>{% endif %}
+		    {{ user.city }} {{ user.state }}, {{ user.zipcode }}</p>
+
+		    <p><strong>Phone:</strong> {{ user.phoneNumber }}<br>
+		    <strong>email:</strong> {{ user.email }}</p>
+
+		    <p><strong>PayPal Email:</strong> {{ user.payPalEmail }}</p>
+
+		    {% if not orders %}
+		    <h2 style="text-align: center;">They have no trade ins</h2>
+		    {% else %}
+    		
+
+    		<h2 style="text-align: center;">{{ user.full_name }}'s' Trade Ins</h2>
+	            <table  class="tradeintable" style="width: 100%;">
+	                <tr>
+	                    <th>Trade In ID</th>
+	                    <th># of LCDs</th>
+	                    <th>Estimated Pay Out</th>
+	                    <th>Actual Pay Out</th>
+	                </tr> 
+	                {% for i in orders %}
+		                    <tr>
+		                        <td>
+		                        	<strong>
+		                        		<a href="{{ url_for('user.tradeInOrder', order_id = i.id) }}">{{ i.id }}</a>
+		                        	</strong>
+		                        </td>
+		                        <td>{{ i.qty }}</td>
+		                        <td>${{ i.price }}</td>
+		                        <td>{{ i.truePrice }}</td>
+		                    </tr>
+	                {% endfor %}
+	            </table>
+
+	            <script>
+	            $('tr').click( function() {
+				    window.location = $(this).find('a').attr('href');
+				}).hover( function() {
+				    $(this).toggleClass('hover');
+				});
+				</script>
+
+
+
+    		{% endif %}
+    		</div>
+    	</div>
+    </div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,58 @@
+
+{% extends "userlayout.html" %}
+
+
+<!-- metaDescription -->
+{% block metaDescription %}
+
+{% endblock %}
+
+
+<!-- metaKeywords -->
+{% block metaKeywords %}
+
+{% endblock %}
+
+
+
+<!-- metaTitle -->
+{% block metaTitle %}
+
+{% endblock %}
+
+
+
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Row -->
+        <div class="row">
+            
+            <div class="col-md-offset-2 col-md-4">    
+                <h1>Login</h1>
+                <form id="loginForm" method="POST" action="" role="login">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <div class="form-group">
+                    {{ form.email(placeholder="Email", class_="form-control") }}
+                    <br>
+                    {{ form.password(placeholder="Password", class_="form-control") }}
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-default">Log in</button>
+                </form>
+                <br>
+                <p><a href="{{ url_for('public.forgotPassword') }}">Forgot password?</a></p>
+
+
+
+            </div>
+            <!-- /.col-md-offset-2 /.col-md-8 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}
