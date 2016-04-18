@@ -18,18 +18,43 @@
 {% block body %}
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
+    <div class="container-fluid">
+    	
+    	        <!-- Row -->
+        <div class="row abouthead">
+            <div class="aboutcolorlayer">
+            
+                <div class="col-md-12">
 
+                </div>
+                <!-- /.col-md-offset-2 /.col-md-8 -->
 
-            <h2>About Us</h2>
-
-        
             </div>
         </div>
         <!-- /.row -->
+
+
+    	<!-- <div class="row">
+    		<img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-responsive"> 
+    	</div> -->
+    	<!-- ./row -->
     </div>
-    <!-- /.container -->
+    <!-- /.container-fluid -->
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-offset-2 col-md-8">
+
+    		<h1>About Us</h1>
+    		<p>The Drinking Gourd Podcast is composed of recordings of Teishos and Dharma Talks mostly by Jay Rinsen Weik Sensei, who received transmission from his teacher James Ford Roshi in January 2014. Soon after his transmission, Rinsen Sensei received Denbo Transmission and ascended the Mountain Seat of the temple he and his wife, Karen Do'on Weik Osho, founded in Toledo, Ohio: <a href="http://www.buddhisttempleoftoledo.org">The Great Heartland Buddhist Temple of Toledo</a></p>
+    		<p>The Buddhist Temple of Toledo is a vibrant community of practicioners from toddlers up to folks of retirement age, and we love visitors! If you are in the Toledo, Ohio area and are interested in coming for a visit, a Sunday or Wednesday Sutra service is the place to start, <a href="#">click here for more information</a></p>
+
+
+    		</div>
+    		<!-- /.col-md-offset-2 col-md-8 -->
+    	</div>
+    	<!-- ./row -->
+    </div>
+    <!-- ./container -->
 
 {% endblock %}
