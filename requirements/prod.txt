@@ -10,6 +10,9 @@ cffi==1.5.2
 # Mail
 Flask-Mail==0.9.1
 
+# RSS
+feedparser==5.2.1
+
 wheel==0.29.0
 
 # Flask
