@@ -13,6 +13,9 @@ Flask-Mail==0.9.1
 # RSS
 feedparser==5.2.1
 
+# Pagination
+flask-paginate==0.4.1
+
 wheel==0.29.0
 
 # Flask
