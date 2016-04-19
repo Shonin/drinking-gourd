@@ -53,6 +53,7 @@
 =======================*/
 
 .navbar-inverse .navbar-brand {
+  font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-size: 2rem;
   font-weight: 400;
@@ -73,6 +74,9 @@
     HOME SECTION
 =======================*/
 
+.home {
+  text-align: center;
+}
 
 
 .homehead {
@@ -83,9 +87,9 @@
   position: absolute;
   padding: 0px 0px 0px 0px;
   color: white;
-  height: 400px;
+  height: 300px;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .homecolorlayer {
@@ -107,15 +111,14 @@
   }
 }
 
-
-.well {
-    color: #000;
-    border: 3px solid #ddd;
-    background-color: #ddd;
-    font-weight: bold;
-    border-radius: 20px;
+@media(max-width: 480px){
+  .homecolorlayer h1 {
+    font-size: 24px;
+  }
+  .homecolorlayer {
+    padding-top: 140px;
+  }
 }
-
 
 /*======================
     CONTACT SECTION
@@ -142,7 +145,9 @@
 =======================*/
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    font-family: 'Lato', sans-serif;
+
 }
 
 .navbar-inverse {

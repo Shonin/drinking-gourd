@@ -42,9 +42,9 @@
             {% set i = feed.entries[x] %}
             <div class="podcast">
                 <h4>{{ i.title }}</h4>
-                <p>{{ i.published }}</p>
-                <p>{{ i.summary | safe }}</p>
-                    <p><a href="{{ i.enclosures[0]['href'] }}"><button class="btn btn-primary">listen now</button></a></p>
+                <p><strong>Uploaded:</strong> {{ i.published }}</p>
+                <!--<p>{{ i.summary | safe }}</p>-->
+                    <p><a href="{{ i.enclosures[0]['href'] }}"><button class="btn btn-primary">Listen now  <i class="fa fa-play-circle" aria-hidden="true"></i></button></a></p>
             </div>
             <br>
             {% endfor %}

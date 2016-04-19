@@ -19,15 +19,6 @@
         <!-- Row -->
         <div class="row homehead">
             <div class="homecolorlayer">
-            
-                <div class="col-md-12">
-
-                    <h1>The Drinking Gourd</h1>
-                    <p><strong>Zen Buddha Dharma in the American Midwest</strong></p>
-                    <a href="{{ url_for('public.podcast') }}"><button class="btn btn-primary">Listen Now</button></a>
-
-                </div>
-                <!-- /.col-md-offset-2 /.col-md-8 -->
 
             </div>
         </div>
@@ -35,5 +26,15 @@
 
     </div>
     <!-- /.container-fluid -->
+
+    <div class="container">
+        <div class="row home">
+            <div class="col-md-12">
+                <h1>The Drinking Gourd</h1>
+                <p><strong>Zen Buddha Dharma in the American Midwest</strong></p>
+                <a href="{{ url_for('public.podcast') }}"><button class="btn btn-primary">Listen Now</button></a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
