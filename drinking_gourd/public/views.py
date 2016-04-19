@@ -20,6 +20,7 @@ from drinking_gourd.send_emails import send_contact_email, send_password_reset_e
 
 import feedparser
 from flask.ext.paginate import Pagination
+from datetime import datetime
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -46,13 +47,20 @@ def podcast():
     """Render the podcasts page."""
     feed = feedparser.parse('http://thedrinkinggourd.org/rss')
 
+    """Convert Date"""
+    for i in feed.entries:
+        # remove time zone as datetime doesn't support it
+        i.published = i.published[0:-6]
+        i.published = datetime.strptime(i.published, '%a, %d %b %Y %H:%M:%S')
+        i.published = i.published.strftime('%B %d, %Y')
+
+
     """PAGNATION"""
     search = False
     try:
         page = int(request.args.get('page', 1))
     except ValueError:
         page = 1
-    
     pagination = Pagination(page=page, total=len(feed.entries), search=search, record_name='podcasts',
         format_total=True,format_number=True)
     
