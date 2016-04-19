@@ -23,11 +23,16 @@
   background-size: 100% auto;
   background-position: 0% 30%;
   height: 200px;
+  max-width: 100%;
 }
 
 /*======================
     PODCAST SECTION
 =======================*/
+
+audio {
+  max-width: 100%;
+}
 
 .podcasthead {
   background: url("../img/transmission.jpg");
@@ -91,6 +96,12 @@
   padding-top: 15px;
 }
 
+@media(max-width:340px) {
+.navbar-inverse .navbar-brand {
+    font-size: 16px;
+  }
+}
+
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
   color: #555;
@@ -104,7 +115,6 @@
   text-align: center;
 }
 
-
 .homehead {
   background: url("../img/bg.jpg");
   background-repeat: no-repeat;
@@ -114,6 +124,7 @@
   padding: 0px 0px 0px 0px;
   color: white;
   height: 300px;
+  max-height: 300px;
   position: relative;
   margin-bottom: 10px;
 }
@@ -144,6 +155,21 @@
   .homecolorlayer {
     padding-top: 140px;
   }
+    .homehead {
+  background-position: 0% 0%;
+  }
+}
+
+@media(max-width:400px) {
+  .homehead {
+    height: 200px;
+  }
+}
+
+@media(max-width:350px) {
+  .homehead {
+    height: 150px;
+  }
 }
 
 /*======================
@@ -163,6 +189,18 @@
   background-size: 100% auto;
   background-position: 0% 10%;
   height: 200px;
+}
+
+@media(max-width:400px) {
+  .abouthead {
+    height: 150px;
+  }
+}
+
+@media(max-width:350px) {
+  .abouthead {
+    height: 100px;
+  }
 }
 
 
