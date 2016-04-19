@@ -58,25 +58,19 @@
                         <a href="{{ url_for('public.podcast') }}">Podcasts</a>
                     </li>
                     <li>
+                        <a href="{{ url_for('public.videos') }}">Abbot's Address</a>
+                    </li>
+                    <li>
                         <a href="{{ url_for('public.about') }}">About</a>
                     </li>
                     <li>
                         <a href="{{ url_for('public.contact') }}">Contact</a>
                     </li>
+
                     {% if current_user and current_user.is_authenticated %}
-                    
-                    
-                    <li>
-                        <a href="{{ url_for('user.account') }}">My Account</a>
-                    </li>
+
                     <li>
                         <a href="{{ url_for('user.logout') }}">Logout</a>
-                    </li>
-
-                    {% else %}
-                    
-                    <li>
-                        <a href="{{ url_for('public.login_page') }}">Login</a>
                     </li>
 
                     {% endif %}
@@ -115,6 +109,18 @@
             <li>
                 <a href="{{ url_for('public.contact') }}">Contact</a>
             </li>
+            {% if current_user and current_user.is_authenticated %}
+            <li>
+                <a href="{{ url_for('user.logout') }}">Logout</a>
+            </li>
+
+            {% else %}
+            
+            <li>
+                <a href="{{ url_for('public.login_page') }}">Login</a>
+            </li>
+
+            {% endif %}
             <li>
             
                 <a>Copyright &copy; The Drinking Gourd, 2016</a>

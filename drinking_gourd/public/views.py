@@ -32,7 +32,7 @@ def load_user(user_id):
     return User.get_by_id(int(user_id))
 
 
-@blueprint.route('/', methods=['GET', 'POST'])
+@blueprint.route('/')
 def home():
     """Render the home page."""
     return render_template('public/index.html')
@@ -41,6 +41,11 @@ def home():
 def about():
     """Render the about page page."""
     return render_template('public/about.html')
+
+@blueprint.route('/videos/')
+def videos():
+    """Render the videos page."""
+    return render_template('public/videos.html')
 
 @blueprint.route('/podcast/')
 def podcast():
