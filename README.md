@@ -1,4 +1,3 @@
-===============================
 The Drinking Gourd
 ===============================
 
@@ -10,43 +9,50 @@ TO DO
 * Settings -> Set Recaptcha Keys
 * Settings -> Set Email info
 * Settings -> Set DB Info
-* Public -> emials -> Set contact email address
+* Public -> emails -> Set contact email address
 
 It is recomended you set these all as environment variables
 
 
 Quickstart
 ----------
+Generate a secret key:
 
-First, set your app's secret key as an environment variable. For example, example add the following to ``.bashrc`` or ``.bash_profile``.
+    $ python
+    >>> import os
+    >>> os.urandom(24)
+    "\x08'\\\xef\xe5\xea\xef\x9b}\xb4\x93\xed\xe9f-\xbd\x8c8\x11\xc9\x11\x1d\x0e%"
 
-.. code-block:: bash
+(Make sure to generate your own) Copy that mess of string and then set the secret key
+in an enviornment variable 
 
-    export DRINKING_GOURD_SECRET='something-really-secret'
+    export DRINKING_GOURD_SECRET="\x08'\\\xef\xe5\xea\xef\x9b}\xb4\x93\xed\xe9f-\xbd\x8c8\x11\xc9\x11\x1d\x0e%"
 
+Then make your virtualenv
 
-Then run the following commands to bootstrap your environment.
+    mkvirtualenv myNewProject
+    workon myNewProject    
 
+Clone the repo and fire it up
 
-::
-    mkvirtualenv drinking_gourd
-    workon drinking_gourd
-    cd drinking_gourd
+    git clone https://github.com/Shonin/drinking-gourd.git
+    cd drinking-gourd
     pip install -r requirements/dev.txt
     bower install
     python manage.py server
 
-You will see a pretty welcome screen.
+You will see the homepage on localhost:5000
 
-Once you have installed your DBMS, run the following to create your app's database tables and perform the initial migration:
 
-::
+Database Setup
+--------------
+
+Run the following to create your app's database tables and perform the initial migration:
 
     python manage.py db init
     python manage.py db migrate
     python manage.py db upgrade
     python manage.py server
-
 
 
 Deployment
@@ -63,14 +69,6 @@ To open the interactive shell, run ::
     python manage.py shell
 
 By default, you will have access to ``app``, ``db``, and the ``User`` model.
-
-
-Running Tests
--------------
-
-To run all tests, run ::
-
-    python manage.py test
 
 
 Migrations
