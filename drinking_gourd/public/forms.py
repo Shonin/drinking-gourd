@@ -59,6 +59,6 @@ class LoginForm(Form):
             return False
 
         if not self.user.active:
-            self.username.errors.append('User not activated')
+            self.email.errors.append('User not activated')
             return False
         return True
