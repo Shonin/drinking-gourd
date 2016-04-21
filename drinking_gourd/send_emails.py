@@ -1,6 +1,6 @@
 # Send emails
 
-from flask import render_template, url_for
+from flask import current_app, render_template, url_for
 from drinking_gourd.mail import send_email
 from drinking_gourd.token import generate_confirmation_token
 
@@ -9,8 +9,8 @@ def send_contact_email(name, email, message):
 	html = "New Message From: " + name + "<br>"
 	html += "Email: " + email + "<br>"
 	html += "Message: " + message 
-	subject = "Your Contact Form"
-	send_email('#@#.com', subject, html)
+	subject = "The Drinking Gourd Contact Form"
+	send_email(current_app.config.get('CONTACT_EMAIL'), subject, html)
 
 def send_password_reset_email(user):
 	"""Sends an email to a user with a unique token
