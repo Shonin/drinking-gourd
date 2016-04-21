@@ -24,15 +24,20 @@ class Config(object):
     MAIL_USE_SSL = True
 
     # GMail authentication
-    MAIL_USERNAME = '#@#.com' # os.environ['APP_MAIL_USERNAME']
-    MAIL_PASSWORD = '#' # os.environ['APP_MAIL_PASSWORD']
+    MAIL_USERNAME = os.environ.get('APP_MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('APP_MAIL_PASSWORD')
 
     # mail accounts
-    MAIL_DEFAULT_SENDER = '#@#.com'
+    MAIL_DEFAULT_SENDER = os.environ.get('APP_MAIL_USERNAME')
+
+    # app point of contact
+    CONTACT_EMAIL = os.environ.get('APP_MAIL_CONTACT')
 
     # Recaptcha keys
     RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC')
     RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE')
+
+
 
 class ProdConfig(Config):
     """Production configuration."""
