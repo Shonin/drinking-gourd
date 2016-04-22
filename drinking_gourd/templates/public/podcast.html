@@ -37,21 +37,23 @@
 
             <h2>The Podcasts</h2>
 
-            {% set skip = page * 10 %}
-            {% for x in range(skip - 10, skip) %}
-            {% set i = feed.entries[x] %}
-            <div class="podcast">
-                <h4>{{ i.title }}</h4>
-                <p><strong>Uploaded:</strong> {{ i.published }}</p>
-                <!--<p>{{ i.summary | safe }}</p>-->
-                    <audio controls>
-                      <source src="{{ i.enclosures[0]['href'] }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                    </audio>
-                    <br><br>
-                    <p><a href="{{ i.enclosures[0]['href'] }}" download><button class="btn btn-primary">Download the File  <i class="fa fa-cloud-download" aria-hidden="true"></i></button></a></p>
-            </div>
-            <br>
+            {% set first = (page * 10) - 10 %}
+            {% for x in range(first, first + 10) %}
+            {% if feed.entries[x] %}
+                {% set i = feed.entries[x] %}
+                <div class="podcast">
+                    <h4>{{ i.title }}</h4>
+                    <p><strong>Uploaded:</strong> {{ i.published }}</p>
+                    <!--<p>{{ i.summary | safe }}</p>-->
+                        <audio controls>
+                          <source src="{{ i.enclosures[0]['href'] }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                        </audio>
+                        <br><br>
+                        <p><a href="{{ i.enclosures[0]['href'] }}" download><button class="btn btn-primary">Download the File  <i class="fa fa-cloud-download" aria-hidden="true"></i></button></a></p>
+                </div>
+                <br>
+            {% endif %}
             {% endfor %}
 
             {{ pagination.links }}
